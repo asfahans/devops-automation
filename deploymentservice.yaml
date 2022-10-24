@@ -2,10 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devops-automation-prod-k8-deployment
-  namespace: asfahan-prod
 spec:
-  replicas: 1
-  revisionHistoryLimit: 10
+  replicas: 2
   selector:
     matchLabels:
       app: devops-automation-api-prod
@@ -17,6 +15,7 @@ spec:
       containers:
       - name: devops-automation-api-prod
         image: asfahans/devops-automation
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
 
@@ -31,7 +30,6 @@ spec:
     app: devops-automation-api-prod
   type: NodePort  
   ports:
-    - protocol: TCP
-      nodePort: 32119
+    - protocol: "TCP"
       port: 8080
       targetPort: 8080
