@@ -16,7 +16,7 @@ spec:
     spec:  
       containers:
       - name: devops-automation-api-prod
-        image: asfahans/devops-automation:api-prod-1.0.29
+        image: asfahans/devops-automation:api-prod-1.0.30
         ports:
         - containerPort: 8080
 
